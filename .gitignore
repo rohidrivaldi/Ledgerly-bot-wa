@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# kredensial & rahasia — JANGAN pernah ke-commit
+.env
+
+# sesi WhatsApp (Baileys) — kredensial perangkat tertaut
+.auth_sessions/
+
+# state runtime alert (biar gak spam alert sama berulang)
+sent_alerts.json
+
+# log
+*.log
