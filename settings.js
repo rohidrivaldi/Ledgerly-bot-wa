@@ -18,6 +18,12 @@ export const config = {
 
   // Low stock check interval
   checkIntervalMs: parseInt(process.env.CHECK_INTERVAL_MS) || 600000, // 10 minutes
+
+  // Owner settings for LID mapping
+  owner: {
+    number: process.env.OWNER_NUMBER || "6285750917686",
+    lid: process.env.OWNER_LID || "62633659084913",
+  },
 };
 
 // Validate credentials on startup

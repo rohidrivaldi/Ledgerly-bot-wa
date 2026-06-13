@@ -63,7 +63,10 @@ const handleMessage = async (sock, messageData) => {
     const chatJid = msg.key.remoteJid;
     if (chatJid.endsWith("@newsletter") || chatJid.endsWith("@g.us")) return; // Skip channel dan grup (hanya private chat)
 
-    const senderNumber = extractNumber(chatJid);
+    // Deteksi nomor pengirim (dukung fallback remoteJidAlt jika primary JID berupa LID)
+    const altJid = msg.key.remoteJidAlt || msg.key.participantAlt;
+    const senderNumber = (chatJid.endsWith("@lid") && altJid) ? extractNumber(altJid) : extractNumber(chatJid);
+
     const messageText = getMessageText(msg.message);
 
     if (!messageText) return;
